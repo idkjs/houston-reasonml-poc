@@ -1,0 +1,26 @@
+{
+  "name": "houston-poc-reasonml",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "bsb -make-world",
+    "watch": "bsb -make-world -w",
+    "start": "node src/index.js",
+    "clean": "bsb -clean-world"
+  },
+  "keywords": [
+    "BuckleScript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "bs-platform": "6.2.1"
+  },
+  "dependencies": {
+    "apollo-server": "2.9.12",
+    "esm": "3.2.25",
+    "graphql": "14.5.8",
+    "graphql-yoga": "^1.18.3",
+    "object-hash": "^2.0.0",
+    "serialport": "^8.0.5"
+  }
+}

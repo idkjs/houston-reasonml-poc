@@ -1,0 +1,14 @@
+{
+  "name": "sn",
+  "description": "sd",
+  "commands": [
+    {
+      "name": "cn",
+      "timeout": 14000,
+      "wait": 4000,
+      "arguments": [],
+      "id": "0"
+    }
+  ],
+  "id": "fd9220efed406a1a0324398e8e44d71a44b65d11"
+}
