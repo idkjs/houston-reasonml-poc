@@ -9,8 +9,14 @@ type enc =
   | Arr(array(int))
   | Buf(buffer);
 
-module type Encoder = {type t; let encode: t => enc;};
-module type Decoder = {type t; let decode: buffer => t;};
+module type Encoder = {
+  type t;
+  let encode: t => enc;
+};
+module type Decoder = {
+  type t;
+  let decode: buffer => t;
+};
 
 /*
  Make is a functor. Given a specific Encoder and Decoder modules it creates a Connection module.

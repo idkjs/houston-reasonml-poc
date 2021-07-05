@@ -42,7 +42,7 @@ let uplinkTimeout = (uplinkState, id) => {
 
 let uplinkStop = uplinkState => {...uplinkState, inProgress: false};
 
-let reducer = (state: state, action: action) : state =>
+let reducer = (state: state, action: action): state =>
   switch (action) {
   | UplinkStart(sequence) => {uplink: uplinkStart(state.uplink, sequence)}
   | UplinkSend(id) => {uplink: uplinkSend(state.uplink, id)}

@@ -5,6 +5,7 @@
     "build": "bsb -make-world",
     "watch": "bsb -make-world -w",
     "start": "node src/index.js",
+    "format":"find src -name *.re -or -name *.rei | grep -v node_modules | xargs bsrefmt --in-place",
     "clean": "bsb -clean-world"
   },
   "keywords": [

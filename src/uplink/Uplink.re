@@ -1,8 +1,8 @@
 open Action;
 
 type timerId;
-[@bs.val] external setTimeout : (unit => unit, int) => timerId = "setTimeout";
-[@bs.val] external clearTimeout : timerId => unit = "clearTimeout";
+[@bs.val] external setTimeout: (unit => unit, int) => timerId = "setTimeout";
+[@bs.val] external clearTimeout: timerId => unit = "clearTimeout";
 
 type t = {
   timers: ref(list(timerId)),
@@ -40,9 +40,9 @@ let handle = data => Js.log(data);
 let start = (dep, sequence) => {
   let {store, timers, con} = dep;
   let uplinkState = Store.getState(store).uplink;
-  uplinkState.inProgress ?
-    () :
-    {
+  uplinkState.inProgress
+    ? ()
+    : {
       Store.dispatch(store, UplinkStart(sequence));
       timers := createTimers(dep, sequence##commands);
       con.subscribe(handle) |> ignore;
@@ -51,11 +51,11 @@ let start = (dep, sequence) => {
 
 let stop = ({timers, store}) => {
   let uplinkState = Store.getState(store).uplink;
-  uplinkState.inProgress ?
-    {
+  uplinkState.inProgress
+    ? {
       List.iter(clearTimeout, timers^);
       timers := [];
       Store.dispatch(store, UplinkStop);
-    } :
-    ();
+    }
+    : ();
 };
